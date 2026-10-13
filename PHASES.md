@@ -2,7 +2,7 @@
 
 Proyek 07, di folder Private - Offline Document Intelligence System. Diperbarui 2026-10-13. Checklist yang dicentang merujuk pada bukti; target operasional di luar lab tetap belum diuji.
 
-Urutan portofolio: **0 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8**. Phase 8 adalah serah-terima offline lokal dalam batas lab yang telah dipilih dan diuji; Phase 9 cloud opsional dan selalu terakhir. Ikuti [aturan eksekusi lokal](../LOCAL-FIRST-EXECUTION.md): tidak wajib Docker pada Phase 0–6; testing ringan dan security sejak awal; acceptance database/platform/container dicatat terpisah dari tes native. Gate awal tidak menyatakan integrasi fake sudah live-validated.
+Urutan portofolio: **0 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8**. Phase 8 adalah serah-terima offline lokal dalam batas lab yang telah dipilih dan diuji; Phase 9 cloud opsional dan selalu terakhir. [Panduan delivery](PROJECT-DELIVERY.md) merangkum hasil saat ini. Docker tidak diwajibkan pada Phase 0–6; acceptance database/platform/container dicatat terpisah dari tes native. Gate awal tidak menyatakan integrasi fake sudah live-validated.
 
 ## Phase 0 — Scope bisnis dan hardware
 

@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "date": "2026-10-13",
+  "scope": "Windows Docker Desktop; revised source Compose with reused synthetic Phase 8 volumes",
+  "effective_compose_service_ports": 0,
+  "running_services_checked": ["api", "database", "odoo", "ollama"],
+  "all_running_containers_host_port_bindings": 0,
+  "all_running_containers_published_ports": 0,
+  "former_port_listeners_before_bridge": [],
+  "internal_network": true,
+  "external_tcp_probes": "ENETUNREACH from API, Odoo and Ollama",
+  "temporary_operator_bridge": "127.0.0.1:8078; stopped after read-only smoke",
+  "read_only_smoke": {
+    "native_sourced_answer_with_page": true,
+    "missing_abstained": true,
+    "conflict_reviewed": true,
+    "cross_tenant_denied": true
+  },
+  "project_services_running_after_checks": 0,
+  "limitations": [
+    "Not a fresh-volume install or a new release acceptance",
+    "No new Odoo write, OCR upload, backup/restore or browser/MCP test in this recheck",
+    "Host not physically air-gapped; results are specific to this Docker host",
+    "Original private bundle embedded the prior Compose copy and must be refreshed before revised-profile release"
+  ]
+}

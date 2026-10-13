@@ -2,7 +2,7 @@
 
 ## Urutan eksekusi terbaru
 
-Ikuti [PHASES.md](PHASES.md) dan [aturan eksekusi lokal](../LOCAL-FIRST-EXECUTION.md). Phase 0–6: implementasi serta unit/contract/native tests tanpa kewajiban Docker. Phase 7: integrasi nyata, Docker/Linux dan reliability. Phase 8: delivery lokal dan support. Phase 9: cloud/hosting extension opsional, selalu terakhir. Checklist kemampuan di bawah adalah target release, bukan kewajiban menjalankan container pada fase awal. Test double tidak menggantikan connected acceptance.
+Ikuti [rencana fase](PHASES.md) dan [panduan delivery](PROJECT-DELIVERY.md). Produk utama memakai worker lokal tanpa n8n. Contoh extension di bawah bukan dependency release yang telah divalidasi.
 
 Status: **rencana; belum menjadi hasil benchmark atau implementasi baru**.
 
@@ -12,7 +12,7 @@ Status: **rencana; belum menjadi hasil benchmark atau implementasi baru**.
 
 **Alasan:** Tidak menambah engine hanya untuk timer atau pemanggilan API lokal. Jika extension dipilih, seluruh dependency/notification tetap lokal dan isolation diuji ulang.
 
-Dokumen ini menggantikan kewajiban lama memasang n8n di semua proyek. Lihat [keputusan portfolio](../AUTOMATION-DECISIONS.md).
+Dokumen ini mencatat keputusan proyek 07: n8n tetap extension opsional, bukan bagian dari runtime yang tervalidasi.
 
 ## Contoh extension, bukan pekerjaan wajib V1
 

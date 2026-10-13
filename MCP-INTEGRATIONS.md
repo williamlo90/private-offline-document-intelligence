@@ -1,6 +1,6 @@
 # Custom MCP Server APIs and Database
 
-Diperbarui 2026-10-12. Status: protokol dan kontrak Phase 4 lulus pada harness lokal; PostgreSQL/Odoo nyata tetap Phase 7. Urutan dan gate mengikuti [PHASES.md](PHASES.md) serta [aturan eksekusi lokal](../LOCAL-FIRST-EXECUTION.md).
+Diperbarui 2026-10-13. Protokol/kontrak MCP diuji pada harness dan jalur baca MCP stdio diuji pada lab Phase 8; lihat [rencana fase](PHASES.md) dan [bukti Phase 8](docs/PHASE-8-DELIVERY.md).
 
 Client → TypeScript MCP → Python domain API → PostgreSQL/pgvector dan Odoo lokal. MCP tidak menulis tabel secara langsung atau menerima arbitrary SQL dari model.
 

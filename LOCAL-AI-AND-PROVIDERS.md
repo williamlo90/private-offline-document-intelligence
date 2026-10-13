@@ -1,6 +1,6 @@
 # Local AI and Provider Profiles
 
-Diperbarui 2026-10-08. Status: rencana implementasi; checklist belum merupakan hasil. Urutan dan gate mengikuti [PHASES.md](PHASES.md) serta [aturan eksekusi lokal](../LOCAL-FIRST-EXECUTION.md). Phase 0–6 tanpa kewajiban Docker, Phase 7 acceptance stack nyata, Phase 8 delivery/support, Phase 9 cloud opsional.
+Diperbarui 2026-10-13. Status: profil Ollama lokal tervalidasi dalam [lab Phase 8](docs/PHASE-8-DELIVERY.md). Target dan opsi provider lain di bawah bukan klaim implementasi; [rencana fase](PHASES.md) mencatat batasnya.
 
 ## Profil produk V1
 

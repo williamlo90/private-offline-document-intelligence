@@ -1,9 +1,9 @@
-# Private checklist bridge — prepared, not runtime validated
+# Private checklist bridge — synthetic local-lab validation
 
 This project-owned Odoo 19 addon extends the `ops_bridge` addon from Project 02
 at revision `6a55b9dc61acd87e61b3aacb4da97d61af84b0fa`. It calls the upstream
 private binding/model/record helpers; no upstream repository was modified.
-Install only with that audited dependency on an isolated Phase 7 database.
+Install only with that audited dependency on an isolated test database.
 The reported revision identifies the expected dependency, not a runtime Git check.
 
 Expose only `info`, `execute` and `status` from `private.checklist.bridge` through
@@ -25,13 +25,9 @@ a different operation ID. Matching retries read the existing receipt. Read-back
 checks the actual activity note, assignee, opportunity and customer mapping.
 No direct user ACL is granted to the receipt model.
 
-Tests execute the standalone validation/rendering rules and parse addon Python
-syntax. They do not import an Odoo ORM stub or claim database correctness.
-Pending isolated acceptance: install/upgrade, access rights, JSON-2 authentication,
-company isolation, HTML sanitization, concurrent duplicate submissions, rollback
-between activity/receipt creation, response loss, actual read-back and recovery.
-Odoo's HTML sanitizer may require a rendering adjustment after native testing;
-the current read-back fails closed on unexpected markup changes.
-
+Standalone tests exercise validation and rendering rules. In the Phase 7–8
+synthetic lab, the addon ran in Odoo 19 with two companies, separate approvals,
+save/read-back, replay and response-loss recovery through persistent application
+coordination. See [the Phase 8 handoff](../../../docs/PHASE-8-DELIVERY.md).
+This does not establish production concurrency, upgrades or customer deployment.
 The application still refuses to connect this adapter to the memory ledger.
-Persistent source/approval/operation coordination must be complete before live use.

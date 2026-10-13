@@ -21,5 +21,7 @@
 - [Phase 7 portfolio validation](PHASE-7-PORTFOLIO.md)
 - [Phase 8 lab delivery](PHASE-8-DELIVERY.md)
 - [Sanitized Phase 8 evidence summary](evidence/phase-8-summary.json)
+- [No-port profile recheck](evidence/phase8-no-port-recheck.json)
+- [Synthetic UI replay hashes](evidence/ui-replay.json)
 
 All public evidence uses synthetic data. Raw logs, credentials, database state and model binaries stay in ignored `local/`. The summary is a compact publication view of the final validated lab; it is not a production certification.

@@ -1,4 +1,4 @@
-# Isolated local-lab delivery rehearsal; all external-facing ports bind loopback.
+# Isolated local-lab delivery rehearsal; no service publishes a host port.
 name: private-documents-phase8
 services:
   database:
@@ -7,7 +7,6 @@ services:
       POSTGRES_DB: private_documents_lab
       POSTGRES_USER: private_documents_owner
       POSTGRES_PASSWORD: ${PRIVATE_DOCUMENTS_DB_PASSWORD:?Set isolated Phase 8 database password}
-    ports: ["127.0.0.1:5478:5432"]
     volumes: [project07-phase8-db:/var/lib/postgresql/data]
     networks: [offline]
     mem_limit: 768m
@@ -20,7 +19,6 @@ services:
       PRIVATE_DOCUMENTS_ODOO_DB_PASSWORD: ${PRIVATE_DOCUMENTS_ODOO_DB_PASSWORD:?Set isolated Phase 8 Odoo DB password}
       PRIVATE_DOCUMENTS_ODOO_ADMIN_PASSWORD: ${PRIVATE_DOCUMENTS_ODOO_ADMIN_PASSWORD:?Set isolated Phase 8 Odoo admin password}
       PRIVATE_CHECKLIST_SIGNING_KEY: ${PRIVATE_CHECKLIST_SIGNING_KEY:?Set isolated Phase 8 bridge signing key}
-    ports: ["127.0.0.1:8178:8069"]
     volumes:
       - project07-phase8-odoo:/var/lib/odoo
       - ../local/phase-8/releases/candidate/application/scripts/phase7_odoo_runtime.py:/opt/project07/runtime.py:ro
@@ -67,7 +65,6 @@ services:
       retries: 5
   api:
     image: private-documents-api:phase7
-    ports: ["127.0.0.1:8078:8077"]
     environment:
       PRIVATE_LAB_CONFIG: /run/secrets/lab-identities.json
       PRIVATE_DB_CONFIG: /run/secrets/db-config.json

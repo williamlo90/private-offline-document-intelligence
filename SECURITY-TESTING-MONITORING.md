@@ -2,7 +2,7 @@
 
 ## Urutan eksekusi terbaru
 
-Ikuti [PHASES.md](PHASES.md) dan [aturan eksekusi lokal](../LOCAL-FIRST-EXECUTION.md). Phase 0–6: implementasi serta unit/contract/native tests tanpa kewajiban Docker. Phase 7: integrasi nyata, Docker/Linux dan reliability. Phase 8: delivery lokal dan support. Phase 9: cloud/hosting extension opsional, selalu terakhir. Checklist kemampuan di bawah adalah target release, bukan kewajiban menjalankan container pada fase awal. Test double tidak menggantikan connected acceptance.
+Ikuti [rencana fase](PHASES.md), [bukti lab](docs/PHASE-8-DELIVERY.md) dan [batas keamanan](SECURITY.md). Checklist umum di bawah adalah target operasional, bukan klaim produksi; test double tidak menggantikan connected acceptance.
 
 Proyek 07: **Private / Offline Document Intelligence System**
 

@@ -1,6 +1,6 @@
 # Odoo lokal untuk checklist pekerjaan MSP
 
-Diperbarui 2026-10-12. Status: kontrak Phase 4 tervalidasi pada harness lokal; koneksi Odoo nyata tetap Phase 7. Urutan dan gate mengikuti [PHASES.md](PHASES.md) serta [aturan eksekusi lokal](../LOCAL-FIRST-EXECUTION.md).
+Diperbarui 2026-10-13. Kontrak Phase 4 dan Odoo lab Phase 7–8 telah diuji; lihat [rencana fase](PHASES.md) dan [bukti Phase 8](docs/PHASE-8-DELIVERY.md). Ini bukan klaim Odoo produksi.
 
 **Platform:** Odoo lokal pada jaringan privat yang sama. Profil offline tidak memakai Odoo SaaS atau Microsoft 365.
 

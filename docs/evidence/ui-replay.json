@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "scope": "Synthetic UI fixture replay in built React/FastAPI memory harness; not live Ollama/Odoo acceptance",
+  "source_document": "evaluation/development/atlas-backup-v1.pdf",
+  "page": 1,
+  "source_quote": "Record the job ID and completion time.",
+  "states": [
+    "cited",
+    "missing",
+    "conflict"
+  ],
+  "nonlocal_browser_requests": 0,
+  "page_errors": 0,
+  "screenshot_sha256": {
+    "fieldnote-cited.png": "2341143582ef2fcff1ffccc0572c589c6a6fbf978d1053c2e247744fe1a4cd42",
+    "fieldnote-missing.png": "016ddb3435710d22033653a45e2ca65160cf5e761fe1a6498d250ca30f86fd2b",
+    "fieldnote-conflict.png": "473a17289b56508e02ea9eccb426afbaee18486f875fae933588c29fa9ebc373"
+  }
+}

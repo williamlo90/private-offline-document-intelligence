@@ -1,6 +1,6 @@
 # Reusable Business Skills
 
-Diperbarui 2026-10-12. Status implementasi Phase 3 tervalidasi pada harness lokal; checklist umum di bawah adalah kontrak lanjutan, bukan klaim acceptance seluruh stack. Urutan dan gate mengikuti [PHASES.md](PHASES.md) serta [aturan eksekusi lokal](../LOCAL-FIRST-EXECUTION.md).
+Diperbarui 2026-10-13. Empat skill berbagi domain API; [rencana fase](PHASES.md) dan [bukti lab](docs/PHASE-8-DELIVERY.md) menyatakan acceptance yang benar-benar dijalankan. Checklist umum di bawah bukan klaim produksi.
 
 Skills adalah kemampuan aplikasi executable, bukan kumpulan prompt. Setiap paket mempunyai `skills/<name>/SKILL.md`, JSON Schema, binding implementasi dan tests.
 
