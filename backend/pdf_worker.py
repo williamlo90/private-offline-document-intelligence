@@ -29,11 +29,6 @@ def extract(source, language):
             text = page.extract_text() or ''
             method, quality = 'text', 'usable'
             if len(text.strip()) < 20:
-                executable = os.environ.get('PRIVATE_TESSERACT') or shutil.which('tesseract')
-                if not executable and Path('C:/Program Files/Tesseract-OCR/tesseract.exe').is_file():
-                    executable = 'C:/Program Files/Tesseract-OCR/tesseract.exe'
-                if not executable:
-                    raise ParseError('ocr_unavailable')
                 import pypdfium2 as pdfium
                 if renderer is None:
                     renderer = pdfium.PdfDocument(str(source))
@@ -41,6 +36,11 @@ def extract(source, language):
                 width, height = render_page.get_size()
                 if width <= 0 or height <= 0 or width * height * (300 / 72) ** 2 > 20_000_000:
                     raise ParseError('page_dimensions_limit')
+                executable = os.environ.get('PRIVATE_TESSERACT') or shutil.which('tesseract')
+                if not executable and Path('C:/Program Files/Tesseract-OCR/tesseract.exe').is_file():
+                    executable = 'C:/Program Files/Tesseract-OCR/tesseract.exe'
+                if not executable:
+                    raise ParseError('ocr_unavailable')
                 image_path = source.parent / f'page-{index}.png'
                 render_page.render(scale=300/72).to_pil().save(image_path)
                 command = [executable, str(image_path), 'stdout', '-l', language, '--psm', '6', '-c', 'tessedit_create_tsv=1']
