@@ -1,9 +1,3 @@
-Project-owned code is licensed under the MIT License below, except
-odoo/addons/private_checklist_bridge, which is licensed under LGPL-3.0 as
-declared in its Odoo manifest. Third-party dependencies, the upstream Odoo
-addon, and model/runtime assets retain their own licenses and are not
-relicensed by this file.
-
 MIT License
 
 Copyright (c) 2026 William Lo

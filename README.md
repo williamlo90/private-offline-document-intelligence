@@ -71,4 +71,4 @@ Run `python -m pytest -q`, `npm run build --prefix frontend`, `npm run build --p
 
 ## Delivery scope
 
-Phase 0–8 is **offline-delivered in a synthetic local lab**, with pre-provisioned pinned Docker base images and one GPU-capable host. Phase 9 private-cloud hosting is optional and has not been selected or validated. Odoo filestore restore, long-duration reliability, customer production support and physical host air-gap are outside the demonstrated scope. See [security](SECURITY.md), the [phase plan](PHASES.md), the [case study](docs/CASE-STUDY.md) and the [license](LICENSE).
+Phase 0–8 is **offline-delivered in a synthetic local lab**, with pre-provisioned pinned Docker base images and one GPU-capable host. Phase 9 private-cloud hosting is optional and has not been selected or validated. Odoo filestore restore, long-duration reliability, customer production support and physical host air-gap are outside the demonstrated scope. See [security](SECURITY.md), the [phase plan](PHASES.md), the [case study](docs/CASE-STUDY.md) and the [licensing scope](LICENSING.md).
