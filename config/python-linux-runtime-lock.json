@@ -1,0 +1,13 @@
+{
+  "platform": "ubuntu-24.04-amd64",
+  "source": "Ubuntu Noble package repositories",
+  "packages": {
+    "libpython3.12-minimal_3.12.3-1ubuntu0.17_amd64.deb": "d646ad7112b5adec21ba0e1af015f04ae8ca7f5efdc619622547dd6673c4c14b",
+    "libpython3.12-stdlib_3.12.3-1ubuntu0.17_amd64.deb": "45d3f530ba1f9d6e879ad46b92046fabab13fe50a82450e4f65557a3bbad1489",
+    "python3-pip-whl_24.0+dfsg-1ubuntu1.3_all.deb": "4b7c50db8f261b208c1d9cde8db148c1f682cc516957b986ada5088cfcee1359",
+    "python3-setuptools-whl_68.1.2-2ubuntu1.2_all.deb": "edfa94cc1f6a33af99cfaf6ebfe35dbcd9c4bdd8555b90c0d8e78479faf5c8f0",
+    "python3.12_3.12.3-1ubuntu0.17_amd64.deb": "6745c9463432e619d7402b117ad4ac86c31dcd3999ba20daa9e395f6f9909d86",
+    "python3.12-minimal_3.12.3-1ubuntu0.17_amd64.deb": "d452689b9660845345a4c3e05e4ad82c082d5474e04031b7aa47f1a6d5610a6e",
+    "python3.12-venv_3.12.3-1ubuntu0.17_amd64.deb": "b8d4bfea3df63945b6a202bd0773caf7727dde86d2df91df6e88a8ccf7c18b7e"
+  }
+}

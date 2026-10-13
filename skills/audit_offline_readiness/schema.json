@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "input": {
+    "additionalProperties": false,
+    "properties": {},
+    "title": "AuditReadiness",
+    "type": "object"
+  },
+  "output": {
+    "$defs": {
+      "ArtifactCheck": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "verified",
+              "missing_or_unsafe",
+              "checksum_mismatch",
+              "budget_exceeded"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "status"
+        ],
+        "title": "ArtifactCheck",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "schema_version": {
+        "const": "1.0",
+        "default": "1.0",
+        "title": "Schema Version",
+        "type": "string"
+      },
+      "status": {
+        "enum": [
+          "manifest_missing",
+          "manifest_invalid",
+          "assets_incomplete",
+          "assets_verified"
+        ],
+        "title": "Status",
+        "type": "string"
+      },
+      "checks": {
+        "items": {
+          "$ref": "#/$defs/ArtifactCheck"
+        },
+        "title": "Checks",
+        "type": "array"
+      },
+      "offline_validated": {
+        "const": false,
+        "default": false,
+        "title": "Offline Validated",
+        "type": "boolean"
+      },
+      "pending": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Pending",
+        "type": "array"
+      }
+    },
+    "required": [
+      "status"
+    ],
+    "title": "ReadinessResult",
+    "type": "object"
+  }
+}

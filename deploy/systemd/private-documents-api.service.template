@@ -1,0 +1,28 @@
+[Unit]
+Description=Project 07 native API (Phase 7 lab profile)
+Requires=private-documents-ollama.service
+After=private-documents-ollama.service
+ConditionPathExists=@ROOT@/venv/bin/python
+
+[Service]
+Type=simple
+User=project07
+Group=project07
+WorkingDirectory=@ROOT@/releases/@RELEASE@/application
+EnvironmentFile=/etc/project07/api.env
+Environment=PYTHONPATH=@ROOT@/releases/@RELEASE@/application
+Environment=PRIVATE_TESSERACT=@ROOT@/runtime/usr/bin/tesseract
+Environment=PRIVATE_TESSDATA=@ROOT@/releases/@RELEASE@/local/ocr/tessdata
+ExecStart=@ROOT@/venv/bin/python -m uvicorn backend.main:load_app --factory --host 127.0.0.1 --port 8077
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=@ROOT@/state
+IPAddressDeny=any
+IPAddressAllow=localhost
+MemoryMax=2G
+
+[Install]
+WantedBy=multi-user.target

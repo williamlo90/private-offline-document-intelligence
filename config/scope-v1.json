@@ -1,0 +1,101 @@
+{
+  "version": "1.0",
+  "owner": "William (local synthetic lab)",
+  "product": "Private Client Knowledge and Document Assistant for MSPs",
+  "tenants": [
+    "atlas",
+    "birch"
+  ],
+  "users": {
+    "technician": [
+      "read_authorized_sources",
+      "ask",
+      "prepare_checklist"
+    ],
+    "service_manager": [
+      "read_authorized_sources",
+      "ask",
+      "prepare_checklist",
+      "approve_other_actor"
+    ],
+    "administrator": [
+      "manage_local_runtime",
+      "manage_access"
+    ],
+    "auditor": [
+      "read_sanitized_audit"
+    ]
+  },
+  "authorization": "Server authenticates actor and resolves tenant/document grants. No tenant or role supplied by model is authoritative. Admin has no implicit document-read or business-approval access.",
+  "tasks": [
+    "Find service coverage and exclusions with citations",
+    "Answer procedures from SOP with citations",
+    "Prepare sourced checklist for human review and verified Odoo activity save"
+  ],
+  "documents": {
+    "types": [
+      "SOP",
+      "contract/SLA",
+      "service runbook"
+    ],
+    "formats": [
+      "text PDF",
+      "scanned PDF"
+    ],
+    "languages": [
+      "English",
+      "Indonesian"
+    ],
+    "max_bytes": 10485760,
+    "max_pages": 30,
+    "scan_target_dpi": 300,
+    "scan_limitations": "Machine-printed Latin text; no handwriting, password-protected PDFs or guaranteed recovery from illegible scans. Poor scans enter review.",
+    "versions": "Immutable content hash and document version; effective/expiry dates explicit; overlapping conflicting active versions require review."
+  },
+  "limits": [
+    "No IT remediation execution",
+    "No autonomous entitlement/legal decisions",
+    "No hosted model/OCR fallback",
+    "No n8n dependency",
+    "No cross-client evidence disclosure"
+  ],
+  "workload": {
+    "normal_concurrent_users": 1,
+    "peak_concurrent_users": 2,
+    "inference_concurrency": 1,
+    "ocr_concurrency": 1,
+    "bounded_queue": 10,
+    "initial_documents": 10,
+    "target_lab_documents": 100
+  },
+  "resource_budget": {
+    "cpu_threads": 4,
+    "app_ram_gib": 1.5,
+    "model_ram_gib": 4,
+    "vram_gib": 4.5,
+    "disk_gib": 12,
+    "minimum_free_host_ram_gib_before_model_load": 6,
+    "minimum_free_vram_gib_before_model_load": 5,
+    "stop_conditions": [
+      "Available host RAM under 2 GiB",
+      "Model/app exceed configured budget",
+      "Inference timeout 120 seconds",
+      "Unexpected network egress during offline acceptance"
+    ],
+    "embedding_profile": "config/embedding-profile.json: separate provisional CPU embedding budget; six-GiB load gate applies to generative LLM, not every model"
+  },
+  "model_selection": "Not selected. Evaluate a single small quantized Ollama model against the frozen rubric after provisioning and resource checks; being runnable is insufficient.",
+  "integration": {
+    "odoo": "Reuse project 02 pinned contract 1.0 through adapter. Its activity targets crm.lead opportunity_id, not arbitrary customer/task. Phase 4 must verify tenant-scoped customer-to-opportunity mapping and checklist/source serialization without truncation before accepting adapter.",
+    "phase7_pending": [
+      "PostgreSQL/pgvector migrations, RLS and concurrency",
+      "Odoo live two-company write/read-back/replay",
+      "Final Linux/container offline egress, cold start, recovery and performance"
+    ]
+  },
+  "assumptions": [
+    "Synthetic clients only; no customer credentials or real documents needed",
+    "English UI, English and Indonesian document fixtures",
+    "Resource budget is provisional until native measurements; preserve quality gates if runtime must change"
+  ]
+}

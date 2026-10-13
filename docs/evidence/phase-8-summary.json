@@ -1,0 +1,30 @@
+{
+  "status": "offline_delivered_local_lab",
+  "scope": "synthetic single-host Phase 8 deployment; not production or physical air-gap",
+  "api_image_id": "sha256:97308d0926258c7ada1ae3cd09c8023f2c8a8f2068604c876ce8bc8e1a2b4966",
+  "model_digest": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+  "release_artifacts_verified": 100,
+  "fresh_volumes": true,
+  "first_sourced_answer_seconds": 5.056,
+  "manual_api_restarts_before_first_answer": 0,
+  "scanned_pdf_ocr_and_index": true,
+  "exact_citations": true,
+  "missing_abstention": true,
+  "conflict_review": true,
+  "cross_tenant_denial": true,
+  "browser_nonlocal_requests": 0,
+  "mcp_stdio_tools_listed": 10,
+  "odoo_readback_verified": true,
+  "external_tcp_probes": "ENETUNREACH from API, Odoo and Ollama",
+  "restart_first_sourced_answer_seconds": 17.768,
+  "restart_persisted_documents": 11,
+  "restart_persisted_odoo_receipts": 1,
+  "restored_app_document_rows": 11,
+  "restored_odoo_receipt_rows": 1,
+  "project_services_running_after_acceptance": 0,
+  "limitations": [
+    "Pinned Docker base images were pre-provisioned",
+    "Host was not air-gapped; topology and TCP probes are not a packet capture",
+    "Odoo filestore restore, long soak, host reboot and model rollback were not tested"
+  ]
+}

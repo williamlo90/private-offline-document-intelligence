@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "runtime": {
+    "version": "0.40.3",
+    "source": "https://github.com/ollama/ollama/releases/tag/v0.40.3",
+    "windows_archive": "ollama-windows-amd64.zip",
+    "archive_sha256": "e5ecff02dfc7cae8ddf6d6b7a7ac5f727ffeedf4491f44ae75ff5b0820dbbbd5",
+    "executable_sha256": "61b44cfb6d3aa2393a4a731af33c9329bedd58b1c454bdebd185d4a607d0303d"
+  },
+  "model": {
+    "name": "qwen3:4b-instruct-2507-q4_K_M",
+    "source": "https://ollama.com/library/qwen3:4b-instruct-2507-q4_K_M",
+    "manifest_sha256": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+    "gguf_sha256": "85e4a5b7b8ef0e48af0e8658f5aaab9c2324c76c1641493f4d1e25fce54b18b9",
+    "gguf_bytes": 2497280480,
+    "quantization": "Q4_K_M"
+  },
+  "prompt_sha256": "4a91550eb367624aecb352294d5f843942aac7bf938345262d2a209e59651d5f",
+  "candidate_schema_sha256": "7a922e8b8e86927ca90d1450f1bebd48cf3f13971729f77b163b2c9692f6964c",
+  "development_rubric_sha256": "70a6adbcf0e42495acf3ae6786e9bc2fab9c7db15dc5a366549e4695fe6ad050"
+}

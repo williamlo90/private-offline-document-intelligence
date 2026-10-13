@@ -1,0 +1,100 @@
+{
+  "version": "heldout-v6",
+  "split": "heldout",
+  "documents": [
+    {
+      "tenant": "atlas",
+      "document_id": "atlas-edr-freshness",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "coverage",
+          "value": "two daily signature checks of managed endpoint agents"
+        },
+        {
+          "page": 1,
+          "kind": "exclusion",
+          "value": "Endpoint license renewal purchases are excluded"
+        },
+        {
+          "page": 1,
+          "kind": "sla",
+          "value": "38 minutes during the operations window"
+        }
+      ]
+    },
+    {
+      "tenant": "atlas",
+      "document_id": "atlas-resolver-approval",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Record the resolver node identifier"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Check the approved maintenance ticket"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Contact the network lead"
+        },
+        {
+          "page": 1,
+          "kind": "obligation",
+          "value": "Never clear a resolver cache"
+        }
+      ]
+    },
+    {
+      "tenant": "birch",
+      "document_id": "birch-scanner-link",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "coverage",
+          "value": "three link checks per week"
+        },
+        {
+          "page": 1,
+          "kind": "exclusion",
+          "value": "Scanner hardware repair is excluded"
+        },
+        {
+          "page": 1,
+          "kind": "sla",
+          "value": "58 minutes during branch hours"
+        }
+      ]
+    },
+    {
+      "tenant": "birch",
+      "document_id": "birch-api-queue",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Catat ID antrean API"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Periksa jumlah pesan tertunda"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Hubungi tim aplikasi"
+        },
+        {
+          "page": 1,
+          "kind": "obligation",
+          "value": "Jangan hapus antrean"
+        }
+      ]
+    }
+  ]
+}

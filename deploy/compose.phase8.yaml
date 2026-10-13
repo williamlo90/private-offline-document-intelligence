@@ -1,0 +1,15 @@
+# Readiness overlay for the selected local Ollama model. Use with compose.offline.yaml.
+services:
+  api:
+    depends_on:
+      ollama: {condition: service_healthy}
+  ollama:
+    volumes:
+      - ../scripts/phase8_ollama_ready.py:/opt/phase8_ready.py:ro
+      - ../local/phase-7/ollama-container-profile.json:/run/secrets/ollama-profile.json:ro
+    healthcheck:
+      test: ["CMD", "python", "/opt/phase8_ready.py"]
+      start_period: 180s
+      interval: 15s
+      timeout: 130s
+      retries: 5

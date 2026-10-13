@@ -1,0 +1,100 @@
+{
+  "version": "heldout-v3",
+  "split": "heldout",
+  "documents": [
+    {
+      "tenant": "atlas",
+      "document_id": "atlas-disposal-annex",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "coverage",
+          "value": "two onsite chain-of-custody reconciliations per month"
+        },
+        {
+          "page": 1,
+          "kind": "exclusion",
+          "value": "Offsite shredding vendor fees are excluded"
+        },
+        {
+          "page": 2,
+          "kind": "sla",
+          "value": "55 minutes during onsite staffing"
+        }
+      ]
+    },
+    {
+      "tenant": "atlas",
+      "document_id": "atlas-bridge-sop",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Record the incident bridge identifier"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Check the primary on-call contact"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Contact the duty manager"
+        },
+        {
+          "page": 1,
+          "kind": "obligation",
+          "value": "Never place credentials"
+        }
+      ]
+    },
+    {
+      "tenant": "birch",
+      "document_id": "birch-guest-wifi",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "coverage",
+          "value": "two scheduled rule reviews per month"
+        },
+        {
+          "page": 1,
+          "kind": "exclusion",
+          "value": "New access point purchases are excluded"
+        },
+        {
+          "page": 2,
+          "kind": "sla",
+          "value": "65 minutes during service hours"
+        }
+      ]
+    },
+    {
+      "tenant": "birch",
+      "document_id": "birch-generator-sop",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Catat nomor genset"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Periksa tekanan bahan bakar"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Hubungi petugas fasilitas"
+        },
+        {
+          "page": 1,
+          "kind": "obligation",
+          "value": "Jangan menyalakan genset"
+        }
+      ]
+    }
+  ]
+}

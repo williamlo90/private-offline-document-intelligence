@@ -1,0 +1,102 @@
+# Isolated local-lab delivery rehearsal; all external-facing ports bind loopback.
+name: private-documents-phase8
+services:
+  database:
+    image: pgvector/pgvector:pg16@sha256:ad2e18408bf447f62092a8a5259e7df10505c5a0360bd1a1853ac8b8b0763da2
+    environment:
+      POSTGRES_DB: private_documents_lab
+      POSTGRES_USER: private_documents_owner
+      POSTGRES_PASSWORD: ${PRIVATE_DOCUMENTS_DB_PASSWORD:?Set isolated Phase 8 database password}
+    ports: ["127.0.0.1:5478:5432"]
+    volumes: [project07-phase8-db:/var/lib/postgresql/data]
+    networks: [offline]
+    mem_limit: 768m
+    cpus: 1
+  odoo:
+    image: odoo:19.0@sha256:dd9013e669caaa23d26765dc55814655eaeecca7cfc2c265dbabae913bce22fd
+    entrypoint: ["python3", "/opt/project07/runtime.py"]
+    command: ["serve"]
+    environment:
+      PRIVATE_DOCUMENTS_ODOO_DB_PASSWORD: ${PRIVATE_DOCUMENTS_ODOO_DB_PASSWORD:?Set isolated Phase 8 Odoo DB password}
+      PRIVATE_DOCUMENTS_ODOO_ADMIN_PASSWORD: ${PRIVATE_DOCUMENTS_ODOO_ADMIN_PASSWORD:?Set isolated Phase 8 Odoo admin password}
+      PRIVATE_CHECKLIST_SIGNING_KEY: ${PRIVATE_CHECKLIST_SIGNING_KEY:?Set isolated Phase 8 bridge signing key}
+    ports: ["127.0.0.1:8178:8069"]
+    volumes:
+      - project07-phase8-odoo:/var/lib/odoo
+      - ../local/phase-8/releases/candidate/application/scripts/phase7_odoo_runtime.py:/opt/project07/runtime.py:ro
+      - ../local/phase-8/releases/candidate/application/scripts/phase7_odoo_seed.py:/opt/project07/seed.py:ro
+      - ../local/phase-8/releases/candidate/upstream/ops_bridge:/mnt/extra-addons/ops_bridge:ro
+      - ../local/phase-8/releases/candidate/application/odoo/addons/private_checklist_bridge:/mnt/extra-addons/private_checklist_bridge:ro
+      - ../local/phase-8/odoo-config:/run/private-checklist
+    networks: [offline]
+    depends_on:
+      database: {condition: service_started}
+    mem_limit: 1536m
+    cpus: 2
+  ollama:
+    image: python:3.12-slim-bookworm@sha256:392307d22300de8b5986851a12d9176dfc0fc073e65bf6523ebd7dcbeb23564e
+    entrypoint: ["/opt/ollama/bin/ollama"]
+    command: ["serve"]
+    environment:
+      OLLAMA_HOST: 0.0.0.0:11439
+      OLLAMA_MODELS: /models
+      OLLAMA_NO_CLOUD: "1"
+      OLLAMA_MAX_LOADED_MODELS: "1"
+      OLLAMA_NUM_PARALLEL: "1"
+      OLLAMA_KEEP_ALIVE: "0"
+      HOME: /tmp
+    volumes:
+      - ../local/phase-8/runtime/ollama:/opt/ollama:ro
+      - ../local/phase-8/releases/candidate/local/models/ollama:/models:ro
+      - ../local/phase-8/releases/candidate/application/scripts/phase8_ollama_ready.py:/opt/phase8_ready.py:ro
+      - ../local/phase-8/ollama-profile.json:/run/secrets/ollama-profile.json:ro
+    networks: [offline]
+    user: "10001:10001"
+    read_only: true
+    tmpfs: [/tmp]
+    mem_limit: 4096m
+    cpus: 4
+    gpus: all
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: ["CMD", "python", "/opt/phase8_ready.py"]
+      start_period: 180s
+      interval: 15s
+      timeout: 130s
+      retries: 5
+  api:
+    image: private-documents-api:phase7
+    ports: ["127.0.0.1:8078:8077"]
+    environment:
+      PRIVATE_LAB_CONFIG: /run/secrets/lab-identities.json
+      PRIVATE_DB_CONFIG: /run/secrets/db-config.json
+      PRIVATE_ODOO_CONFIG: /run/secrets/odoo-config.json
+      PRIVATE_OLLAMA_PROFILE: /run/secrets/ollama-profile.json
+      PRIVATE_TESSDATA: /opt/tessdata
+      PRIVATE_INFERENCE_QUEUE_WAIT_SECONDS: "60"
+    volumes:
+      - ../local/phase-8/lab-identities.json:/run/secrets/lab-identities.json:ro
+      - ../local/phase-8/db-config-container.json:/run/secrets/db-config.json:ro
+      - ../local/phase-8/odoo-bridge-container.json:/run/secrets/odoo-config.json:ro
+      - ../local/phase-8/ollama-profile.json:/run/secrets/ollama-profile.json:ro
+      - ../local/phase-8/releases/candidate/local/models/multilingual-minilm:/app/local/models/multilingual-minilm:ro
+      - ../local/phase-8/releases/candidate/eng.traineddata:/opt/tessdata/eng.traineddata:ro
+      - ../local/phase-8/releases/candidate/ind.traineddata:/opt/tessdata/ind.traineddata:ro
+    networks: [offline]
+    depends_on:
+      database: {condition: service_started}
+      odoo: {condition: service_started}
+      ollama: {condition: service_healthy}
+    mem_limit: 1536m
+    cpus: 2
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+networks:
+  offline:
+    internal: true
+volumes:
+  project07-phase8-db:
+  project07-phase8-odoo:

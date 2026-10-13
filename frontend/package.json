@@ -1,0 +1,1 @@
+{"name":"private-documents-ui","private":true,"version":"0.1.0","type":"module","scripts":{"dev":"vite --host 127.0.0.1","build":"tsc --noEmit && vite build","test:e2e":"node tests/review.mjs"},"dependencies":{"react":"19.2.8","react-dom":"19.2.8"},"devDependencies":{"@types/react":"19.2.18","@types/react-dom":"19.2.4","typescript":"6.0.3","vite":"8.2.2","playwright":"1.62.1"}}

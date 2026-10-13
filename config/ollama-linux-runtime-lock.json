@@ -1,0 +1,9 @@
+{
+  "version": "0.40.3",
+  "archive": "ollama-linux-amd64.tar.zst",
+  "bytes": 1437349190,
+  "sha256": "ce6f8b671a699bf1ebafb28d60dbbabf4f37b30b499145fa308a8ba72de021d6",
+  "source": "https://github.com/ollama/ollama/releases/download/v0.40.3/ollama-linux-amd64.tar.zst",
+  "extractor_package": "zstd_1.5.5+dfsg2-2build1.1_amd64.deb",
+  "extractor_sha256": "d7667f83e3a2caeaaecaca464d542ee6ccf537259a479622796c84afc96d6032"
+}

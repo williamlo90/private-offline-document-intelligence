@@ -1,0 +1,13 @@
+# Phase 7 — portfolio validation
+
+**Status:** revised portfolio gate passed on 2026-10-13. This is a synthetic lab prototype, not an `offline-delivered` operational release.
+
+The connected demo ran the Chromium UI and MCP stdio client through PDF upload, cited answers, two human reviews, Odoo 19 save/read-back and audit. The separate Linux Docker profile ran API, PostgreSQL/pgvector, Odoo and locally staged CUDA Ollama on one internal network with no published ports. In that blocked-egress profile, scanned-PDF OCR, cited answers, tenant denial, review and Odoo read-back/replay passed. External TCP probes from API, Odoo and Ollama returned `ENETUNREACH`. This audit checks topology and active probes; it is not a packet capture of all attempted traffic.
+
+On the persistent synthetic 13-case set, 7/7 answerable questions, 6/6 abstain/review cases, 14/14 extracted fields, 14/14 exact/relevant citations and 10/10 labeled retrieval locations passed. A relevance defect was fixed using this set, so it is now **regression evidence**, not an independent untouched holdout for the final code. No customer accuracy claim follows from it.
+
+The final image (`sha256:97308d0926258c7ada1ae3cd09c8023f2c8a8f2068604c876ce8bc8e1a2b4966`) passed 154 backend tests and an offline PDF → answer → review → Odoo smoke. The short workload made 20 searches and 7 answers: one normal user and two simultaneous peak users, with one active inference and a bounded wait queue. There were zero HTTP errors; search p95 was 0.030 s, answer p95 30.180 s, and maximum observed inference queue wait 18.001 s. Across 38 samples, API RAM peaked at 233.5 MiB, Ollama container RAM at 2933.76 MiB, and whole-host GPU usage at 3928 MiB, all below the declared 1536/4096/4608 MiB budgets. These are sampled peaks, not continuous maxima; the GPU figure includes unrelated host processes.
+
+The **first inference immediately after this final Compose cold start timed out** while GPU discovery/model loading overlapped the request. After restarting only the project API, inference succeeded in 13.947 s and the full offline smoke passed. Unattended first-request cold-start reliability is therefore unproven. Full offline browser/MCP operation, clean reinstall, long soak, VM reboot, whole-stack disk-full/OOM and model/config rollback are outside the revised gate; they remain work for an optional operational delivery phase. Services for this project were stopped after acceptance.
+
+Local reproducibility evidence is indexed in `local/phase-7/final-evidence-manifest.json`; [the revised plan](../PHASES.md) states the scope and gate.

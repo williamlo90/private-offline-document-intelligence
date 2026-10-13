@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "dedicated_runtime": true,
+  "port": 11439,
+  "model": "qwen3:4b-instruct-2507-q4_K_M",
+  "digest": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+  "prompt_sha256": "4a91550eb367624aecb352294d5f843942aac7bf938345262d2a209e59651d5f",
+  "minimum_free_ram_gib": 1.75,
+  "runtime_reserve_gib": 1.0,
+  "timeout_seconds": 120.0
+}

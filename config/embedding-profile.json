@@ -1,0 +1,28 @@
+{
+  "model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "revision": "e8f8c211226b894fcb81acc59f3b34ba3efd5f42",
+  "license": "Apache-2.0",
+  "source": "https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "model_file": "onnx/model_quint8_avx2.onnx",
+  "files": [
+    "onnx/model_quint8_avx2.onnx",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "config.json",
+    "sentence_bert_config.json",
+    "1_Pooling/config.json",
+    "README.md"
+  ],
+  "dimensions": 384,
+  "max_tokens": 128,
+  "pooling": "attention-mask-weighted mean then L2 normalization",
+  "execution_provider": "CPUExecutionProvider",
+  "threads": 2,
+  "batch_size": 1,
+  "minimum_available_ram_gib": 1.75,
+  "status": "candidate; native inference and quality not yet validated",
+  "selection_reason": "Multilingual official AVX2 quantized ONNX export (118 MB), batch size one and two CPU threads. Two native three-text runs used 0.421-0.424 GiB worker RSS after load/inference. The 1.75 GiB preflight retains a 1 GiB host reserve plus about 0.3 GiB margin; the one-GiB worker cap is monitored separately.",
+  "minimum_runtime_available_ram_gib": 1.0,
+  "provisional_process_budget_gib": 1.0,
+  "memory_budget_status": "measured two native smoke runs at 0.421-0.424 GiB worker RSS; 1.75 GiB preflight remains a conservative planning threshold pending corpus workload profile"
+}

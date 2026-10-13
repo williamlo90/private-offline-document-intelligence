@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0",
+  "input": {
+    "additionalProperties": false,
+    "properties": {
+      "document_ids": {
+        "items": {
+          "maxLength": 100,
+          "minLength": 1,
+          "type": "string"
+        },
+        "maxItems": 10,
+        "minItems": 1,
+        "title": "Document Ids",
+        "type": "array"
+      },
+      "steps": {
+        "items": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string"
+        },
+        "maxItems": 30,
+        "minItems": 1,
+        "title": "Steps",
+        "type": "array"
+      },
+      "expected_versions": {
+        "additionalProperties": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "maxProperties": 10,
+        "minProperties": 1,
+        "title": "Expected Versions",
+        "type": "object"
+      }
+    },
+    "required": [
+      "document_ids",
+      "steps",
+      "expected_versions"
+    ],
+    "title": "PrepareChecklist",
+    "type": "object"
+  },
+  "output": {
+    "properties": {
+      "id": {
+        "title": "Id",
+        "type": "string"
+      },
+      "tenant": {
+        "title": "Tenant",
+        "type": "string"
+      },
+      "actor_id": {
+        "title": "Actor Id",
+        "type": "string"
+      },
+      "source_versions": {
+        "items": {
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "type": "array"
+        },
+        "title": "Source Versions",
+        "type": "array"
+      },
+      "steps": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Steps",
+        "type": "array"
+      },
+      "payload_hash": {
+        "title": "Payload Hash",
+        "type": "string"
+      },
+      "expires_at": {
+        "format": "date-time",
+        "title": "Expires At",
+        "type": "string"
+      },
+      "step_sources": {
+        "default": [],
+        "items": {
+          "maxItems": 5,
+          "minItems": 5,
+          "prefixItems": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            }
+          ],
+          "type": "array"
+        },
+        "title": "Step Sources",
+        "type": "array"
+      },
+      "status": {
+        "default": "review",
+        "title": "Status",
+        "type": "string"
+      },
+      "approver_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Approver Id"
+      }
+    },
+    "required": [
+      "id",
+      "tenant",
+      "actor_id",
+      "source_versions",
+      "steps",
+      "payload_hash",
+      "expires_at"
+    ],
+    "title": "Proposal",
+    "type": "object"
+  }
+}

@@ -1,0 +1,9 @@
+# The pinned Linux Ollama archive is extracted into this project-owned Docker volume.
+services:
+  ollama:
+    volumes:
+      - project07-phase8-runtime:/opt/ollama:ro
+      - project07-phase8-models:/models
+volumes:
+  project07-phase8-runtime:
+  project07-phase8-models:

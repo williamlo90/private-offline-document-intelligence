@@ -1,0 +1,1 @@
+{"name":"private-documents-mcp","private":true,"version":"0.1.0","type":"module","scripts":{"build":"tsc","test":"node tests/stdio.mjs && node tests/stdio-save.mjs && node tests/boundaries.mjs"},"dependencies":{"@modelcontextprotocol/sdk":"1.32.1","zod":"4.3.6"},"devDependencies":{"typescript":"6.0.3","@types/node":"22.19.0"}}

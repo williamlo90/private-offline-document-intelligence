@@ -1,0 +1,100 @@
+{
+  "version": "heldout-v4",
+  "split": "heldout",
+  "documents": [
+    {
+      "tenant": "atlas",
+      "document_id": "atlas-badge-annex",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "coverage",
+          "value": "three access-list checks each month"
+        },
+        {
+          "page": 1,
+          "kind": "exclusion",
+          "value": "Physical badge fabrication is excluded"
+        },
+        {
+          "page": 1,
+          "kind": "sla",
+          "value": "70 minutes during staffed hours"
+        }
+      ]
+    },
+    {
+      "tenant": "atlas",
+      "document_id": "atlas-router-release",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Record the router model"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Check the approved maintenance window"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Contact the network lead"
+        },
+        {
+          "page": 1,
+          "kind": "obligation",
+          "value": "Never flash firmware"
+        }
+      ]
+    },
+    {
+      "tenant": "birch",
+      "document_id": "birch-av-annex",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "coverage",
+          "value": "two scheduled inspections per quarter"
+        },
+        {
+          "page": 1,
+          "kind": "exclusion",
+          "value": "New display panel purchases are excluded"
+        },
+        {
+          "page": 1,
+          "kind": "sla",
+          "value": "75 minutes during office coverage"
+        }
+      ]
+    },
+    {
+      "tenant": "birch",
+      "document_id": "birch-kiosk-sop",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Catat nomor kios tamu"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Periksa lampu status"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Hubungi helpdesk"
+        },
+        {
+          "page": 1,
+          "kind": "obligation",
+          "value": "Jangan reset perangkat"
+        }
+      ]
+    }
+  ]
+}

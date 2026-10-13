@@ -1,0 +1,100 @@
+{
+  "version": "heldout-v5",
+  "split": "heldout",
+  "documents": [
+    {
+      "tenant": "atlas",
+      "document_id": "atlas-clock-service",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "coverage",
+          "value": "one weekly drift check of gateway time sources"
+        },
+        {
+          "page": 1,
+          "kind": "exclusion",
+          "value": "Physical GPS antenna procurement is excluded"
+        },
+        {
+          "page": 1,
+          "kind": "sla",
+          "value": "52 minutes within office hours"
+        }
+      ]
+    },
+    {
+      "tenant": "atlas",
+      "document_id": "atlas-mfa-token-sop",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Record the replacement token serial number"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Verify employee identity"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Contact the identity lead"
+        },
+        {
+          "page": 1,
+          "kind": "obligation",
+          "value": "Never disable multi-factor authentication"
+        }
+      ]
+    },
+    {
+      "tenant": "birch",
+      "document_id": "birch-pos-uplink",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "coverage",
+          "value": "one packet-loss check each business day"
+        },
+        {
+          "page": 1,
+          "kind": "exclusion",
+          "value": "ISP contract changes are excluded"
+        },
+        {
+          "page": 1,
+          "kind": "sla",
+          "value": "48 minutes within branch support hours"
+        }
+      ]
+    },
+    {
+      "tenant": "birch",
+      "document_id": "birch-db-failover",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Catat ID replikasi"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Periksa status node cadangan"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Hubungi DBA"
+        },
+        {
+          "page": 1,
+          "kind": "obligation",
+          "value": "Jangan lakukan failover"
+        }
+      ]
+    }
+  ]
+}

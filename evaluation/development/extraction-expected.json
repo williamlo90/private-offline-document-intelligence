@@ -1,0 +1,46 @@
+{
+  "version": "dev-extraction-v1",
+  "split": "development",
+  "documents": [
+    {
+      "tenant": "atlas",
+      "document_id": "atlas-sla-v1",
+      "fields": [
+        {"page": 1, "kind": "coverage", "value": "managed laptop support Monday to Friday, 09:00 to 17:00 WIB"},
+        {"page": 1, "kind": "exclusion", "value": "Hardware replacement purchases are excluded"},
+        {"page": 2, "kind": "sla", "value": "60 minutes during service hours"},
+        {"page": 2, "kind": "sla", "value": "not a resolution guarantee"}
+      ]
+    },
+    {
+      "tenant": "birch",
+      "document_id": "birch-sla-v1",
+      "fields": [
+        {"page": 1, "kind": "coverage", "value": "managed server monitoring every day, 00:00 to 24:00 WIB"},
+        {"page": 1, "kind": "exclusion", "value": "Application development is excluded"},
+        {"page": 2, "kind": "sla", "value": "20 minutes"},
+        {"page": 2, "kind": "sla", "value": "not a resolution guarantee"}
+      ]
+    },
+    {
+      "tenant": "atlas",
+      "document_id": "atlas-vpn-v1",
+      "fields": [
+        {"page": 1, "kind": "procedure", "value": "Record the VPN error code"},
+        {"page": 1, "kind": "procedure", "value": "Check the approved gateway status"},
+        {"page": 1, "kind": "procedure", "value": "Escalate persistent connection failures to the network team"},
+        {"page": 1, "kind": "obligation", "value": "Never request a user password"}
+      ]
+    },
+    {
+      "tenant": "birch",
+      "document_id": "birch-disk-v1",
+      "fields": [
+        {"page": 1, "kind": "procedure", "value": "Buka dashboard server lokal"},
+        {"page": 1, "kind": "procedure", "value": "Catat persentase ruang disk kosong"},
+        {"page": 1, "kind": "procedure", "value": "kurang dari 15 persen, eskalasi ke service manager"},
+        {"page": 1, "kind": "obligation", "value": "Jangan hapus file otomatis"}
+      ]
+    }
+  ]
+}

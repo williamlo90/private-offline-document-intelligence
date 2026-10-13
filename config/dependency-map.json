@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "architecture": "React -> FastAPI shared domain -> repository/parser/model/Odoo adapters; MCP and worker call the same domain API",
+  "reuse": [
+    {"source": "../02 - Odoo Business Operations MCP Server", "revision": "6a55b9dc61acd87e61b3aacb4da97d61af84b0fa", "observed_dirty": false, "files": ["backend/contracts.py", "backend/odoo_adapter.py", "odoo/addons/ops_bridge/models.py", "odoo/addons/ops_bridge/__manifest__.py"], "decision": "Consume pinned version 1.0 contract and a project-07-owned extension contract, not a full repo copy", "license": "Odoo addon declares LGPL-3; client code licensing must be verified before redistribution", "gap": "Existing activity supports opportunity_id, assignee_id, due_date and summary <=120 characters only. No body or source-reference fields. It cannot store the full sourced checklist as-is.", "resolution": "Phase 4 implement and test a project-07-owned compatible Odoo addon/adapter extension for approved checklist body and source versions, retaining bridge scope/signature/ledger controls; install only on the isolated Phase 7 test instance. Never truncate checklist or label pointer-only save as full checklist save."},
+    {"source": "../../Agentic Project/ai-document-ops-system", "revision": "2c809aae2e202812392d83542d13b2b27d0427b3", "observed_dirty": true, "files": ["backend/app/providers/contracts.py", "backend/app/providers/factory.py"], "decision": "Reuse page-provenance protocol concept. Build local parser implementation; existing factory supports mock/hosted Mistral and invoice-specific extraction. Do not import hosted dependencies or invoice business rules.", "license": "MIT, William Lo 2026; preserve notice if code is later copied", "local_changes": "Evaluation/benchmark/frontend changes observed. No code copied; selected source hashes and full status recorded in local audit."},
+    {"source": "../../Agentic Project/case-resolution-copilot-production-validation", "revision": "1a88dbb0e55889303ec83c7abb789fade81f16bf", "observed_dirty": true, "files": ["backend/app/retrieval/retriever.py"], "decision": "Reuse provenance/version/stale/conflicting decision concepts. Existing retriever is coupled to policy/proposal SQLAlchemy models; implement MSP-scoped repository interface rather than copying coupled runtime.", "license": "No top-level license found in inspected file listing; no source copied", "local_changes": "docs/README.md and untracked architecture plan; record status locally."}
+  ],
+  "components": [
+    {"name": "Python/FastAPI/Pydantic", "phase": 1, "status": "Python available; project environment and pinned dependencies pending"},
+    {"name": "Node/TypeScript/React", "phase": 1, "status": "Node/npm available; project dependencies pending"},
+    {"name": "PostgreSQL/pgvector", "phase": 7, "status": "Repository interface/migration preparation in Phase 1; real RLS/transaction acceptance Phase 7"},
+    {"name": "PDF parser and local OCR", "phase": 2, "status": "pypdf/reportlab available in authoring runtime; application dependencies and OCR binaries/language assets must be pinned; scan fixtures pending"},
+    {"name": "Ollama/model/embedding/tokenizer", "phase": 3, "status": "Ollama not found on PATH; model unselected. Provision within resource budget, inspect licenses/quantization and pin every asset hash before native acceptance."},
+    {"name": "MCP SDK", "phase": 4, "status": "Pin SDK and validate actual stdio protocol"},
+    {"name": "Offline lab boundary", "phase": 5, "status": "Isolated boundary not established; app flags alone cannot establish no egress. Native offline gate pending until actual boundary test."},
+    {"name": "Linux/Odoo/container acceptance", "phase": 7, "status": "Deferred by phase plan, not passed"}
+  ],
+  "cutover": "No existing product-07 runtime/data to migrate. Introduce adapters incrementally behind domain interfaces with compatibility tests. Preserve upstream repositories unchanged.",
+  "rollback": "Use versioned corpus/config and isolated runtime; restore previous application/model artifact only after its regression suite passes. Upstream systems are not changed in Phase 0–6.",
+  "provisioning": "Online package/model provisioning is separate from offline execution; artifact licenses, exact versions and checksums required in Phase 5 bundle manifest. No runtime hosted fallback."
+}

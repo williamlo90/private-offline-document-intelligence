@@ -1,0 +1,37 @@
+{
+  "version": "phase7-native-profile-1",
+  "status": "targets_for_phase7_acceptance_not_measured_container_results",
+  "profile": "Linux local FastAPI/worker/MCP/Ollama, one quantized Qwen3 4B model at a time",
+  "hardware_basis": "13th Gen Intel Core i7-13620H, NVIDIA RTX 4050 Laptop 6 GiB VRAM, WSL Ubuntu 7.6 GiB RAM; Phase 6 native measurements recorded separately",
+  "workload": {
+    "initial_documents": 10,
+    "target_lab_documents": 100,
+    "normal_concurrent_users": 1,
+    "peak_concurrent_users": 2,
+    "inference_concurrency": 1,
+    "ocr_concurrency": 1,
+    "bounded_queue": 10
+  },
+  "budgets": {
+    "cpu_threads": 4,
+    "app_ram_gib": 1.5,
+    "model_ram_gib": 4.0,
+    "vram_gib": 4.5,
+    "disk_gib": 12,
+    "linux_free_ram_before_daemon_gib": 3.0,
+    "adapter_free_ram_before_request_gib": 1.75,
+    "adapter_runtime_reserve_gib": 1.0,
+    "free_gpu_vram_before_daemon_mib": 4000
+  },
+  "native_slo_targets": {
+    "search_p95_seconds": 2,
+    "answer_p95_seconds": 90,
+    "max_inference_seconds": 120,
+    "scan_ocr_per_page_seconds": 30
+  },
+  "phase7_recheck": [
+    "Record process tree and full-stack peak RAM/VRAM for normal, peak and soak workloads with N and time window",
+    "Include queue wait, throughput and errors alongside p50/p90/p95",
+    "If minimum full stack cannot coexist inside budget, mark resource-blocked and do not substitute fake acceptance"
+  ]
+}

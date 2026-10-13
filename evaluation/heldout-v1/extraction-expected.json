@@ -1,0 +1,100 @@
+{
+  "version": "holdout-v1",
+  "split": "heldout",
+  "documents": [
+    {
+      "tenant": "atlas",
+      "document_id": "atlas-mail-policy",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "coverage",
+          "value": "Tuesday through Saturday from 07:30 to 19:30 WIB"
+        },
+        {
+          "page": 1,
+          "kind": "exclusion",
+          "value": "Mailbox migration projects are excluded"
+        },
+        {
+          "page": 1,
+          "kind": "sla",
+          "value": "45 minutes within the coverage window"
+        }
+      ]
+    },
+    {
+      "tenant": "atlas",
+      "document_id": "atlas-cert-runbook",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "record the certificate serial number and expiry date"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "verify the approved certificate owner"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "request a change ticket"
+        },
+        {
+          "page": 1,
+          "kind": "obligation",
+          "value": "Never export a private key"
+        }
+      ]
+    },
+    {
+      "tenant": "birch",
+      "document_id": "birch-power-sop",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Catat kode alarm UPS"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Periksa status baterai"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "kurang dari 25 menit"
+        },
+        {
+          "page": 1,
+          "kind": "obligation",
+          "value": "Jangan mematikan rak server"
+        }
+      ]
+    },
+    {
+      "tenant": "birch",
+      "document_id": "birch-firewall-annex",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "coverage",
+          "value": "two scheduled rule audits per quarter"
+        },
+        {
+          "page": 1,
+          "kind": "exclusion",
+          "value": "Emergency rule creation is excluded"
+        },
+        {
+          "page": 1,
+          "kind": "sla",
+          "value": "35 minutes during staffed hours"
+        }
+      ]
+    }
+  ]
+}

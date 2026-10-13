@@ -1,0 +1,65 @@
+# Isolated Phase 7 lab; activate only the profiles needed for each suite.
+name: private-documents-lab
+services:
+  api:
+    profiles: [full-stack]
+    image: private-documents-api:phase7
+    ports: ["127.0.0.1:8077:8077"]
+    environment:
+      PRIVATE_LAB_CONFIG: /run/secrets/lab-identities.json
+      PRIVATE_DB_CONFIG: /run/secrets/db-config.json
+      PRIVATE_ODOO_CONFIG: /run/secrets/odoo-config.json
+      PRIVATE_OLLAMA_PROFILE: /run/secrets/ollama-profile.json
+      PRIVATE_TESSDATA: /opt/tessdata
+    volumes:
+      - ../local/phase-7/lab-identities.json:/run/secrets/lab-identities.json:ro
+      - ../local/phase-7/db-config-container.json:/run/secrets/db-config.json:ro
+      - ../local/phase-7/odoo-bridge-container.json:/run/secrets/odoo-config.json:ro
+      - ../local/phase-7/ollama-container-profile.json:/run/secrets/ollama-profile.json:ro
+      - ../local/ocr/tessdata:/opt/tessdata:ro
+      - ../local/models/multilingual-minilm:/app/local/models/multilingual-minilm:ro
+    depends_on:
+      database: {condition: service_started}
+      odoo: {condition: service_started}
+    mem_limit: 1536m
+    cpus: 2
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+  database:
+    profiles: [data-acceptance]
+    image: pgvector/pgvector:pg16@sha256:ad2e18408bf447f62092a8a5259e7df10505c5a0360bd1a1853ac8b8b0763da2
+    environment:
+      POSTGRES_DB: private_documents_lab
+      POSTGRES_USER: private_documents_owner
+      POSTGRES_PASSWORD: ${PRIVATE_DOCUMENTS_DB_PASSWORD:?Set an isolated test database password}
+    ports: ["127.0.0.1:5477:5432"]
+    volumes:
+      - project07-test-data:/var/lib/postgresql/data
+    mem_limit: 768m
+    cpus: 1
+  odoo:
+    profiles: [platform-acceptance]
+    image: odoo:19.0@sha256:dd9013e669caaa23d26765dc55814655eaeecca7cfc2c265dbabae913bce22fd
+    entrypoint: ["python3", "/opt/project07/runtime.py"]
+    command: ["serve"]
+    environment:
+      PRIVATE_DOCUMENTS_ODOO_DB_PASSWORD: ${PRIVATE_DOCUMENTS_ODOO_DB_PASSWORD:?Set isolated Odoo DB password}
+      PRIVATE_DOCUMENTS_ODOO_ADMIN_PASSWORD: ${PRIVATE_DOCUMENTS_ODOO_ADMIN_PASSWORD:?Set isolated Odoo admin password}
+      PRIVATE_CHECKLIST_SIGNING_KEY: ${PRIVATE_CHECKLIST_SIGNING_KEY:?Set isolated bridge signing key}
+    ports: ["127.0.0.1:8177:8069"]
+    volumes:
+      - project07-odoo-test-data:/var/lib/odoo
+      - ../scripts/phase7_odoo_runtime.py:/opt/project07/runtime.py:ro
+      - ../scripts/phase7_odoo_seed.py:/opt/project07/seed.py:ro
+      - ../../02 - Odoo Business Operations MCP Server/odoo/addons/ops_bridge:/mnt/extra-addons/ops_bridge:ro
+      - ../odoo/addons/private_checklist_bridge:/mnt/extra-addons/private_checklist_bridge:ro
+      - ../local/phase-7/odoo-config:/run/private-checklist
+    mem_limit: 1536m
+    cpus: 2
+    depends_on:
+      database: {condition: service_started}
+volumes:
+  project07-test-data:
+  project07-odoo-test-data:

@@ -1,0 +1,100 @@
+{
+  "version": "heldout-v2",
+  "split": "heldout",
+  "documents": [
+    {
+      "tenant": "atlas",
+      "document_id": "atlas-identity-annex",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "coverage",
+          "value": "one quarterly audit of privileged accounts"
+        },
+        {
+          "page": 1,
+          "kind": "exclusion",
+          "value": "New account provisioning is excluded"
+        },
+        {
+          "page": 1,
+          "kind": "sla",
+          "value": "50 minutes during staffed weekdays"
+        }
+      ]
+    },
+    {
+      "tenant": "atlas",
+      "document_id": "atlas-endpoint-isolation",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Record the affected endpoint asset tag"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Capture the isolation alert ID"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Ask the security lead"
+        },
+        {
+          "page": 1,
+          "kind": "obligation",
+          "value": "Do not reconnect the endpoint automatically"
+        }
+      ]
+    },
+    {
+      "tenant": "birch",
+      "document_id": "birch-cooling-check",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Catat suhu rak"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Periksa indikator kipas"
+        },
+        {
+          "page": 1,
+          "kind": "procedure",
+          "value": "Hubungi tim fasilitas"
+        },
+        {
+          "page": 1,
+          "kind": "obligation",
+          "value": "Jangan ubah setelan pendingin"
+        }
+      ]
+    },
+    {
+      "tenant": "birch",
+      "document_id": "birch-wan-schedule",
+      "fields": [
+        {
+          "page": 1,
+          "kind": "coverage",
+          "value": "weekdays from 06:00 to 20:00 WIB"
+        },
+        {
+          "page": 1,
+          "kind": "exclusion",
+          "value": "Bandwidth upgrade purchases are excluded"
+        },
+        {
+          "page": 1,
+          "kind": "sla",
+          "value": "40 minutes within staffed hours"
+        }
+      ]
+    }
+  ]
+}

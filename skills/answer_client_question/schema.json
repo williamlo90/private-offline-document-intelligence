@@ -1,0 +1,188 @@
+{
+  "schema_version": "1.0",
+  "input": {
+    "additionalProperties": false,
+    "properties": {
+      "question": {
+        "maxLength": 1000,
+        "minLength": 1,
+        "title": "Question",
+        "type": "string"
+      }
+    },
+    "required": [
+      "question"
+    ],
+    "title": "Question",
+    "type": "object"
+  },
+  "output": {
+    "$defs": {
+      "CitedExcerpt": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "enum": [
+              "coverage",
+              "exclusion",
+              "procedure",
+              "obligation",
+              "sla"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "value": {
+            "title": "Value",
+            "type": "string"
+          },
+          "evidence": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "source_sha256": {
+            "title": "Source Sha256",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "value",
+          "evidence",
+          "source_sha256"
+        ],
+        "title": "CitedExcerpt",
+        "type": "object"
+      },
+      "Evidence": {
+        "additionalProperties": false,
+        "properties": {
+          "document_id": {
+            "title": "Document Id",
+            "type": "string"
+          },
+          "version": {
+            "minimum": 1,
+            "title": "Version",
+            "type": "integer"
+          },
+          "page": {
+            "minimum": 1,
+            "title": "Page",
+            "type": "integer"
+          },
+          "start": {
+            "minimum": 0,
+            "title": "Start",
+            "type": "integer"
+          },
+          "end": {
+            "exclusiveMinimum": 0,
+            "title": "End",
+            "type": "integer"
+          },
+          "quote": {
+            "maxLength": 5000,
+            "minLength": 1,
+            "title": "Quote",
+            "type": "string"
+          }
+        },
+        "required": [
+          "document_id",
+          "version",
+          "page",
+          "start",
+          "end",
+          "quote"
+        ],
+        "title": "Evidence",
+        "type": "object"
+      },
+      "ReviewDocument": {
+        "additionalProperties": false,
+        "properties": {
+          "document_id": {
+            "title": "Document Id",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          },
+          "reason": {
+            "enum": [
+              "expired",
+              "not_yet_effective",
+              "poor_ocr",
+              "conflicting"
+            ],
+            "title": "Reason",
+            "type": "string"
+          }
+        },
+        "required": [
+          "document_id",
+          "version",
+          "reason"
+        ],
+        "title": "ReviewDocument",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "schema_version": {
+        "const": "1.0",
+        "default": "1.0",
+        "title": "Schema Version",
+        "type": "string"
+      },
+      "status": {
+        "enum": [
+          "sourced_excerpts",
+          "abstain",
+          "review"
+        ],
+        "title": "Status",
+        "type": "string"
+      },
+      "reason": {
+        "enum": [
+          "source_selection",
+          "missing_evidence",
+          "model_abstention",
+          "source_requires_review",
+          "context_limit"
+        ],
+        "title": "Reason",
+        "type": "string"
+      },
+      "excerpts": {
+        "items": {
+          "$ref": "#/$defs/CitedExcerpt"
+        },
+        "title": "Excerpts",
+        "type": "array"
+      },
+      "review_documents": {
+        "items": {
+          "$ref": "#/$defs/ReviewDocument"
+        },
+        "title": "Review Documents",
+        "type": "array"
+      },
+      "review_required": {
+        "const": true,
+        "default": true,
+        "title": "Review Required",
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "status",
+      "reason"
+    ],
+    "title": "SourceResult",
+    "type": "object"
+  }
+}

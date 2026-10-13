@@ -1,0 +1,13 @@
+{
+  "platform": "ubuntu-24.04-amd64",
+  "source": "Ubuntu Noble package repositories",
+  "packages": {
+    "libarchive13t64_3.7.2-2ubuntu0.9_amd64.deb": "b4e618d2237da9b00b88947113ebad8f93134f07f670a2df59cc5201c6c4307f",
+    "libgif7_5.2.2-1ubuntu1.2_amd64.deb": "8137945ac9167f26d0264f403ffb48a45974f096e8acab5479e33fdba6c28a36",
+    "liblept5_1.82.0-3build4_amd64.deb": "c2bb81d58f032b09917c0d50994cce905287a1596304a4e99681a03601456ea8",
+    "libopenjp2-7_2.5.0-2ubuntu0.5_amd64.deb": "24b92ce9c4b306f5370e768024d35ec565792001678b510f0d40b6395b43524f",
+    "libtesseract5_5.3.4-1build5_amd64.deb": "a38438115dc203b5abc1e6a6b24eb5273ba82161a11faa2f619bf5f7622efb14",
+    "libwebpmux3_1.3.2-0.4build3_amd64.deb": "0dd0f2de0fbbda7239209332ddfe512f4383d0489dd3f9fb25398f58c1621724",
+    "tesseract-ocr_5.3.4-1build5_amd64.deb": "2dfac382d77215aee0c3de4a2a2205505d5f2195e72e79b54ad32154fc08da77"
+  }
+}
