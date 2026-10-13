@@ -19,7 +19,7 @@ await writeFile(config,JSON.stringify(identities));
 const actor=id=>identities.actors.find(a=>a.id===id);
 const listener=net.createServer();await new Promise(r=>listener.listen(0,'127.0.0.1',r));
 const port=listener.address().port;await new Promise(r=>listener.close(r));
-const api=spawn(path.join(root,'.venv/Scripts/python.exe'),['-m','uvicorn','backend.phase4_lab:load_app','--factory','--host','127.0.0.1','--port',String(port),'--no-access-log'],
+const api=spawn(process.env.PRIVATE_TEST_PYTHON||path.join(root,'.venv/Scripts/python.exe'),['-m','uvicorn','backend.phase4_lab:load_app','--factory','--host','127.0.0.1','--port',String(port),'--no-access-log'],
  {cwd:root,env:{...process.env,PRIVATE_LAB_CONFIG:config,PRIVATE_OLLAMA_PROFILE:''},windowsHide:true,stdio:'ignore'});
 const origin=`http://127.0.0.1:${port}`;
 let client,transport;

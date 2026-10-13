@@ -30,7 +30,10 @@ jobs:
       - run: npm run build --prefix frontend
       - run: npm ci --prefix mcp
       - run: npm run build --prefix mcp
+      - run: python scripts/create_lab_profile.py
       - run: npm run test --prefix mcp
+        env:
+          PRIVATE_TEST_PYTHON: python
       - name: Scan full Git history with pinned Gitleaks
         shell: bash
         run: |
